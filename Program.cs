@@ -6,6 +6,8 @@ namespace Lab02
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Выберите фигуру: пешка, конь, слон, ладья, ферзь или король");
+            string pieces = Console.ReadLine();
             int Ax=0, Ay=0, Bx=0, By=0;
             Console.WriteLine("Введите начальное и конечное положения фигуры через Enter!!");
             Ax = Convert.ToInt32(Console.Read());
@@ -15,8 +17,19 @@ namespace Lab02
             By = Convert.ToInt32(Console.Read());
             Check(Ax, Ay);
             Check(Bx, By);
+            if (pieces == "пешка" || pieces == "Пешка")
+                IsPawnsCorrect(Ax, Ay, Bx, By);
+            else if (pieces == "конь" || pieces == "Конь")
+                IsKnightCorrect(Ax, Ay, Bx, By);
+            else if (pieces == "слон" || pieces == "Слон")
+                IsBishopCorrect(Ax, Ay, Bx, By);
+            else if (pieces == "ладья" || pieces == "Ладья")
+                IsRookCorrect(Ax, Ay, Bx, By);
+            else if (pieces == "ферзь" || pieces == "Ферзь")
+                IsQueenCorrect(Ax, Ay, Bx, By);
+            else if (pieces == "король" || pieces == "Король")
+                IsKingCorrect(Ax, Ay, Bx, By);
 
-            IsKingCorrect(Ax, Ay, Bx, By);
         }
         static void IsKnightCorrect(int Ax, int Ay, int Bx, int By) //Конь
         {
@@ -75,7 +88,7 @@ namespace Lab02
                 Console.ReadKey();
             }
         }
-        static void IsQueenCorrect(int Ax, int Ay, int Bx, int By)
+        static void IsQueenCorrect(int Ax, int Ay, int Bx, int By) //Ферзь
         {
             if (Math.Abs(Ax - Bx) == Math.Abs(Ay - By) || Math.Abs(Ax - Bx) == 0 && Math.Abs(Ay - By) != 0 || Math.Abs(Ax - Bx) != 0 && Math.Abs(Ay - By) == 0)
             {
@@ -88,7 +101,7 @@ namespace Lab02
                 Console.ReadKey();
             }
         }
-        static void IsKingCorrect(int Ax, int Ay, int Bx, int By)
+        static void IsKingCorrect(int Ax, int Ay, int Bx, int By) //Король
         {
             int moving = Math.Abs(Ax - Bx) + Math.Abs(Ay - By);
             if ((moving == 2)&&(Math.Abs(Ax - Bx) == Math.Abs(Ay - By)) || ((moving == 1) && Math.Abs(Ax - Bx) == 0 && Math.Abs(Ay - By) != 0 || Math.Abs(Ax - Bx) != 0 && Math.Abs(Ay - By) == 0))
