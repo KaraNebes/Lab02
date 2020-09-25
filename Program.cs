@@ -15,7 +15,8 @@ namespace Lab02
             By = Convert.ToInt32(Console.Read());
             Check(Ax, Ay);
             Check(Bx, By);
-            IsHorseCorrect(Ax, Ay, Bx, By);
+
+            IsPawnsCorrect(Ax, Ay, Bx, By);
         }
         static void IsHorseCorrect(int Ax, int Ay, int Bx, int By)
         {
@@ -31,6 +32,21 @@ namespace Lab02
                 Console.WriteLine("Ход неверный");
                 Console.ReadKey();
             }
+        }
+        static void IsPawnsCorrect(int Ax, int Ay, int Bx, int By)
+        {
+            int moving = Math.Abs(Ax - Bx) + Math.Abs(Ay - By);
+            if ((moving == 1) && (Math.Abs(Ax - Bx) == 0))
+            {
+                Console.WriteLine("Ход верный");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Ход неверный");
+                Console.ReadKey();
+            }
+
         }
         static void Check(int x, int y)
         {
