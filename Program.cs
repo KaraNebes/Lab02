@@ -16,9 +16,9 @@ namespace Lab02
             Check(Ax, Ay);
             Check(Bx, By);
 
-            IsRookCorrect(Ax, Ay, Bx, By);
+            IsKingCorrect(Ax, Ay, Bx, By);
         }
-        static void IsHorseCorrect(int Ax, int Ay, int Bx, int By) //Конь
+        static void IsKnightCorrect(int Ax, int Ay, int Bx, int By) //Конь
         {
             int moving = Math.Abs(Ax - Bx) + Math.Abs(Ay - By);
 
@@ -65,6 +65,33 @@ namespace Lab02
         static void IsRookCorrect(int Ax, int Ay, int Bx, int By) //Ладья
         {
             if (Math.Abs(Ax - Bx) == 0 && Math.Abs(Ay - By) != 0 || Math.Abs(Ax - Bx) != 0 && Math.Abs(Ay - By) == 0)
+            {
+                Console.WriteLine("Ход верный");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Ход неверный");
+                Console.ReadKey();
+            }
+        }
+        static void IsQueenCorrect(int Ax, int Ay, int Bx, int By)
+        {
+            if (Math.Abs(Ax - Bx) == Math.Abs(Ay - By) || Math.Abs(Ax - Bx) == 0 && Math.Abs(Ay - By) != 0 || Math.Abs(Ax - Bx) != 0 && Math.Abs(Ay - By) == 0)
+            {
+                Console.WriteLine("Ход верный");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Ход неверный");
+                Console.ReadKey();
+            }
+        }
+        static void IsKingCorrect(int Ax, int Ay, int Bx, int By)
+        {
+            int moving = Math.Abs(Ax - Bx) + Math.Abs(Ay - By);
+            if ((moving == 2)&&(Math.Abs(Ax - Bx) == Math.Abs(Ay - By)) || ((moving == 1) && Math.Abs(Ax - Bx) == 0 && Math.Abs(Ay - By) != 0 || Math.Abs(Ax - Bx) != 0 && Math.Abs(Ay - By) == 0))
             {
                 Console.WriteLine("Ход верный");
                 Console.ReadKey();
