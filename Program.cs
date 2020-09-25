@@ -18,7 +18,7 @@ namespace Lab02
 
             IsPawnsCorrect(Ax, Ay, Bx, By);
         }
-        static void IsHorseCorrect(int Ax, int Ay, int Bx, int By)
+        static void IsHorseCorrect(int Ax, int Ay, int Bx, int By) //Конь
         {
             int moving = Math.Abs(Ax - Bx) + Math.Abs(Ay - By);
 
@@ -33,7 +33,7 @@ namespace Lab02
                 Console.ReadKey();
             }
         }
-        static void IsPawnsCorrect(int Ax, int Ay, int Bx, int By)
+        static void IsPawnsCorrect(int Ax, int Ay, int Bx, int By) //Пешка
         {
             int moving = Math.Abs(Ax - Bx) + Math.Abs(Ay - By);
             if ((moving == 1) && (Math.Abs(Ax - Bx) == 0))
@@ -46,6 +46,24 @@ namespace Lab02
                 Console.WriteLine("Ход неверный");
                 Console.ReadKey();
             }
+
+        }
+        static void IsBishopCorrect(int Ax, int Ay, int Bx, int By) //Слон
+        {
+            
+            if (Math.Abs(Ax - Bx)==Math.Abs(Ay - By))
+            {
+                Console.WriteLine("Ход верный");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Ход неверный");
+                Console.ReadKey();
+            }
+        }
+        static void IsRookCorrect(int Ax, int Ay, int Bx, int By) //Ладья
+        {
 
         }
         static void Check(int x, int y)
