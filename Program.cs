@@ -6,22 +6,22 @@ namespace Lab02
     {
         static void Main(string[] args)
         {
-
-            char Ax = Convert.ToChar(Console.Read());
-            int Ay = Convert.ToInt32(Console.Read());
-            char space = Convert.ToChar(Console.Read());
-            char Bx = Convert.ToChar(Console.Read());
-            int By = Convert.ToInt32(Console.Read());
+            int Ax=0, Ay=0, Bx=0, By=0;
+            Console.WriteLine("Введите начальное и конечное положения фигуры через Enter!!");
+            Ax = Convert.ToInt32(Console.Read());
+            Ay = Convert.ToInt32(Console.Read());
+            string space = Console.ReadLine();
+            Bx = Convert.ToInt32(Console.Read());
+            By = Convert.ToInt32(Console.Read());
             Check(Ax, Ay);
             Check(Bx, By);
             IsHorseCorrect(Ax, Ay, Bx, By);
         }
-        static void IsHorseCorrect(char Ax, int Ay, char Bx, int By)
+        static void IsHorseCorrect(int Ax, int Ay, int Bx, int By)
         {
-            string alfa = "ABCDEFGH";
-            int moving = Math.Abs(alfa.IndexOf(Ax) - alfa.IndexOf(Bx)) + Math.Abs(Ay - By);
+            int moving = Math.Abs(Ax - Bx) + Math.Abs(Ay - By);
 
-            if ((moving == 3) && (Math.Abs(alfa.IndexOf(Ax) - alfa.IndexOf(Bx)) == 1) || Math.Abs(alfa.IndexOf(Ax) - alfa.IndexOf(Bx)) == 2)
+            if ((moving == 3) && (Math.Abs(Ax - Bx) == 1) || Math.Abs(Ax - Bx) == 2)
             {
                 Console.WriteLine("Ход верный");
                 Console.ReadKey();
@@ -32,15 +32,13 @@ namespace Lab02
                 Console.ReadKey();
             }
         }
-        static void Check(char x, int y)
+        static void Check(int x, int y)
         {
-            if (Convert.ToInt32(x) < 65 || Convert.ToInt32(x) > 72 || !(y < 8 || y > 1))
+            if (x < 65 || x > 72 || !(y < 8 || y > 1))
             {
-                Console.WriteLine("Одна ошибка и ты ошибся");
+                Console.WriteLine("Одна ошибка и ты ошибся, попробуй заново");
                 Console.ReadKey();
             }
         }
-
-
     }
 }
