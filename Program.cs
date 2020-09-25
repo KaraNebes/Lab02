@@ -8,7 +8,7 @@ namespace Lab02
         {
             Console.WriteLine("Выберите фигуру: пешка, конь, слон, ладья, ферзь или король");
             string pieces = Console.ReadLine();
-            int Ax=0, Ay=0, Bx=0, By=0;
+            int Ax = 0, Ay = 0, Bx = 0, By = 0;
             Console.WriteLine("Введите начальное и конечное положения фигуры через Enter!!");
             Ax = Convert.ToInt32(Console.Read());
             Ay = Convert.ToInt32(Console.Read());
@@ -29,6 +29,12 @@ namespace Lab02
                 IsQueenCorrect(Ax, Ay, Bx, By);
             else if (pieces == "король" || pieces == "Король")
                 IsKingCorrect(Ax, Ay, Bx, By);
+            else
+            {
+                Console.WriteLine("Такой фигуры нет.");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
 
         }
         static void IsKnightCorrect(int Ax, int Ay, int Bx, int By) //Конь
@@ -119,8 +125,9 @@ namespace Lab02
         {
             if (x < 65 || x > 72 || !(y < 8 || y > 1))
             {
-                Console.WriteLine("Одна ошибка и ты ошибся, попробуй заново");
+                Console.WriteLine("Одна ошибка и ты ошибся");
                 Console.ReadKey();
+                Environment.Exit(0);
             }
         }
     }
