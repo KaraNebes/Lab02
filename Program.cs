@@ -11,10 +11,10 @@ namespace Lab02
             int Ax = 0, Ay = 0, Bx = 0, By = 0;
             Console.WriteLine("Введите начальное и конечное положения фигуры через Enter!!");
             Ax = Convert.ToInt32(Console.Read());
-            Ay = Convert.ToInt32(Console.Read());
+            Ay = Console.Read();
             string space = Console.ReadLine();
             Bx = Convert.ToInt32(Console.Read());
-            By = Convert.ToInt32(Console.Read());
+            By = Console.Read();
             Check(Ax, Ay);
             Check(Bx, By);
             if (pieces == "пешка" || pieces == "Пешка")
@@ -55,7 +55,7 @@ namespace Lab02
         static void IsPawnsCorrect(int Ax, int Ay, int Bx, int By) //Пешка
         {
             int moving = Math.Abs(Ax - Bx) + Math.Abs(Ay - By);
-            if ((moving == 1) && (Math.Abs(Ax - Bx) == 0))
+            if (((moving == 1) && (Math.Abs(Ax - Bx) == 0)) || ((moving == 2) && (Math.Abs(Ax - Bx)==0) && (Ay == 50)))
             {
                 Console.WriteLine("Ход верный");
                 Console.ReadKey();
@@ -123,7 +123,7 @@ namespace Lab02
         }
         static void Check(int x, int y)
         {
-            if (x < 65 || x > 72 || !(y < 8 || y > 1))
+            if (x < 65 || x > 72 || !(y <= 56) || !(y >= 49))
             {
                 Console.WriteLine("Одна ошибка и ты ошибся");
                 Console.ReadKey();
